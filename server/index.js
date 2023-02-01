@@ -1,16 +1,19 @@
 require("dotenv").config();
+require("./src/authentication/local.strategy");
+require("./src/authentication/jwt.strategy");
+
 const express = require("express");
 const locationsController = require("./src/locations/locations.controller");
 const usersController = require("./src/users/users.controller");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-require("./src/authentication/local.strategy");
-require("./src/authentication/jwt.strategy");
+const cors= require("cors");
 const passport = require("passport");
-
 const app = express();
-const port = 3000;
 
+
+const port = 5000;
+app.use(cors());
 app.use(bodyParser.json());
 
 // Protect all /locations route with JWT Authentication
