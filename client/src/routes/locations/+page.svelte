@@ -16,6 +16,29 @@
             cursor: pointer;
         }
 
+        .button1:hover{
+            color:#000000;
+            background-color:grey;
+        }
+
+        .button2 {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            margin: 0;
+            padding: 10px 20px;
+            background-color: lightgray;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button2:hover{
+            color:#000000;
+            background-color:grey;
+        }
+
 
         html, body {
             margin: 30px;
@@ -23,10 +46,7 @@
         }
 
         
-        .button1:hover{
-            color:#000000;
-            background-color:#FFE9EA;
-        }
+        
         @media all and (max-width:30em){
             .button1{
                 display:block;
@@ -126,13 +146,25 @@
 </script>
 
 
+
+
+
+
+
+
+
 <body class="location">
 <a href="/logout" class="button1">Log Out</a>
 
 
 <h1>Locations in Paris</h1>
 <h2>Click on a movie to get its details.</h2>
-    
+
+{#if role=='admin'}
+    <a href="/add" class="button2">Add a Location</a>
+{/if}
+
+
 <div class="menu">
 <ul class="gradient-list">
     {#each elements as element}

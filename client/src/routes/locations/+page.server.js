@@ -31,7 +31,7 @@ export const actions = {
       __v: data.get('__v'),
     };
 
-    const body = await api.put(`locations/${user._id}`, user, locals.jwt);
+    const body = await api.patch(`locations/${user._id}`, user, locals.jwt);
 
     if (body.errors) {
       return fail(401, body);
