@@ -6,18 +6,91 @@
 
 
 <style>
-    *{
+    * {
         background-color: #F6F6F6;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 4px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #3f51b5;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: grey;
+    }
+
+    
+
+    h1{
+        text-align: center;
+        font-size: 40px;
+        margin-top: 10px;
+        color: black;
+    }
+
+    .return-main {
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        margin: 0;
+        padding: 10px 20px;
+        background-color: lightgray;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .return-main:hover{
+        color:#000000;
+        background-color:grey;
+    }
+
+    .location-added {
+        font-size: 20px;
+        color: green;
+        text-align: center;
     }
 
 </style>
 
 <svelte:head>
-    <title>Sign in</title>
+    <title>Add a Location</title>
 </svelte:head>
 
 <body>
-<h2>Add a Location</h2>
+<h1>Add a Location</h1>
+{#if data.para}
+    <p class="location-added">Locations Added</p>
+{/if}
     <form use:enhance method="POST">
         <label><br>Film Type : <input type="text" placeholder="Film Type" value="Long métrage" name="filmType" required /></label>
         <label><br>Film Producer Name :
@@ -39,10 +112,8 @@
             <input type="text" placeholder="Year"  value="2020" name="year" required /></label><br>
         <button type="submit">Add</button>
     </form>
-{#if data.para}
-    <p>Locations Added</p>
-{/if}
+
 <br>
-<button onclick="window.location.href='/locations'">Return to Main</button>
+<button onclick="window.location.href='/locations'" class="return-main">Return to Main</button>
 
 </body>
