@@ -2,6 +2,7 @@
 import { redirect, fail } from '@sveltejs/kit';
 import * as api from '$lib/api.js';
 
+
 /** @type {import('./$types').PageServerLoad} */
 // @ts-ignore
 export async function load({ locals, request, response }) {
@@ -32,6 +33,8 @@ export const actions = {
     };
 
     const body = await api.patch(`locations/${user._id}`, user, locals.jwt);
+    //on redirige pour update directement les elements
+    throw redirect(307, '/locations');
 
     if (body.errors) {
       return fail(401, body);
