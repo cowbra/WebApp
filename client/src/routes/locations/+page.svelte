@@ -121,8 +121,6 @@
         let jwt = data.jwt
         await api.del('locations/'+id, jwt);
         location.reload()
-        //debug
-        console.log("Location deleted")
     };
 
 </script>
