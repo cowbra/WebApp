@@ -8,7 +8,6 @@ export async function load({ locals, request, response }) {
   let jwt = locals.jwt;
   let body = await api.get('locations', jwt);
   return { body, jwt };
-  
 }
 
 /** @type {import('./$types').Actions} */

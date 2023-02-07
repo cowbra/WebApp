@@ -61,7 +61,7 @@
     button {
       margin: 20px;
       padding: 20px;
-      background-color: darkblue;
+      background-color: #3f51b5;
       border: none;
       color: white;
       border-radius: 5px;
