@@ -5,9 +5,9 @@ import * as api from '$lib/api.js';
 /** @type {import('./$types').PageServerLoad} */
 // @ts-ignore
 export async function load({ locals, request, response }) {
-  let token = locals.token;
-  let body = await api.get('locations', token);
-  return { body, token };
+  let jwt = locals.jwt;
+  let body = await api.get('locations', jwt);
+  return { body, jwt };
 }
 
 /** @type {import('./$types').Actions} */
@@ -31,7 +31,7 @@ export const actions = {
       __v: data.get('__v'),
     };
 
-    const body = await api.put(`locations/${user._id}`, user, locals.token);
+    const body = await api.put(`locations/${user._id}`, user, locals.jwt);
 
     if (body.errors) {
       return fail(401, body);
