@@ -30,5 +30,6 @@ export const actions = {
 
     cookies.set('jwt', jwt.token, { path: '/' });
     throw redirect(307, '/locations');
+    //return jwt;
   },
 };

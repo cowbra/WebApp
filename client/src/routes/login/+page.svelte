@@ -1,9 +1,15 @@
 <script>
     import { enhance } from '$app/forms';
-    /**
-     * @type {{ para: any; }}
-     */
-     export let data;
+    import { browser } from '$app/environment';
+    import { goto } from '$app/navigation';
+
+    export let data;
+    /*
+    $: if (browser && data?.jwt) {
+        goto('/locations');
+    }
+    */
+
 
 </script>
 

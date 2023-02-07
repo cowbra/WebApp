@@ -34,6 +34,7 @@
 
 
 <h1>Locations</h1>
+
 {#if role=='admin'}
     <button class="button2" on:click={() => {showAdd = !showAdd}}>Add a Location</button>
     {#if showAdd}
