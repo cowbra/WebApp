@@ -4,6 +4,8 @@
      * @type {{ para: any; }}
      */
      export let data;
+     export let form;
+
 </script>
 
 <svelte:head>
