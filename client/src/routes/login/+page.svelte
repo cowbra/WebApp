@@ -11,8 +11,6 @@
         goto('/locations');
         //console.log(data);    
     }
-    
-
 
 </script>
 
