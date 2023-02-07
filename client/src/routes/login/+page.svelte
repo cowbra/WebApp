@@ -7,10 +7,9 @@
      * @type {{ jwt: any; para: any; }}
      */
      export let data;    
-    
     $: if (browser && data?.jwt) {
         goto('/locations');
-        console.log(data);    
+        //console.log(data);    
     }
     
 

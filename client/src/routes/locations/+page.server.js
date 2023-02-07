@@ -5,12 +5,8 @@ import * as api from '$lib/api.js';
 /** @type {import('./$types').PageServerLoad} */
 // @ts-ignore
 export async function load({ locals, request, response }) {
-  console.log('bonjour');
-  
   let jwt = locals.jwt;
-  console.log(jwt);
   let body = await api.get('locations', jwt);
-  console.log('heh');
   return { body, jwt };
   
 }

@@ -14,7 +14,7 @@ export async function load({ parent, url }) {
 /** @type {import('./$types').Actions} */
 export const actions = {
   // @ts-ignore
-  default: async ({ cookies, request }) => {
+  default: async ({ cookies, request,locals}) => {
     const data = await request.formData();
     const user = {
       username: data.get('username'),
@@ -30,6 +30,9 @@ export const actions = {
 
     cookies.set('jwt', jwt, { path: '/' });
     //throw redirect(307, '/locations');
+
+    //si on ne met pas ça, il faut refresh après le login
+    locals.jwt = jwt;
     return jwt;
   },
 };

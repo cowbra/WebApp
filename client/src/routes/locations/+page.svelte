@@ -1,5 +1,52 @@
 <svelte:head>
     <title>Locations</title>
+<style>
+    .location {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.button1 {
+position: absolute;
+top: 10px;
+right: 10px;
+margin: 0;
+padding: 10px 20px;
+background-color: lightgray;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+.button2 {
+margin: 10px;
+padding: 10px 20px;
+background-color: darkblue;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+label {
+  text-align: right;
+}
+
+input, select {
+  margin-left: auto;
+}
+</style>
 </svelte:head>
 
 <div id="json-data"></div>
@@ -64,7 +111,6 @@
                 <input type="text" placeholder="__v" name="__v" readonly/></label>
             <button type="submit">Add a location</button>
         </form>
-
         {/if}
     {/if}
 <div class="menu">
