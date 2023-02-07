@@ -106,7 +106,7 @@
 <body class="login">
     {#if data.para}
     
-      <p class="error-message"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Incorrect Password   </p>
+      <p class="error-message">Incorrect Password   </p>
     {/if}
   
     <div class="login-form">

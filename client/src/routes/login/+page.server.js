@@ -21,13 +21,14 @@ export const actions = {
       password: data.get('password'),
     };
 
-    const { errors, token } = await api.post('users/login', user);
+    const  { jwt } = await api.post('users/login', user);
+    //console.log(jwt);
 
-    if (errors) {
-      return fail(401, { errors });
+    if (jwt.errors) {
+      return fail(401, jwt);
     }
 
-    cookies.set('jwt', token, { path: '/' });
+    cookies.set('jwt', jwt.token, { path: '/' });
     throw redirect(307, '/locations');
   },
 };
