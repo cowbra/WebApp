@@ -3,12 +3,16 @@
     import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
 
-    export let data;
-    /*
+    /**
+     * @type {{ jwt: any; para: any; }}
+     */
+     export let data;    
+    
     $: if (browser && data?.jwt) {
         goto('/locations');
+        console.log(data);    
     }
-    */
+    
 
 
 </script>
@@ -117,7 +121,7 @@
   
     <div class="login-form">
       <h1>Login</h1>
-      <form use:enhance method="POST">
+      <form  method="POST" action="/login">
         <div class="content">
           <div class="input-field">
             <input

@@ -15,11 +15,12 @@ async function send({ method, path, data, token }) {
 
     if (token) {
         // @ts-ignore
-        opts.headers['Authorization'] = `Token ${token}`;
+        opts.headers['Authorization'] = `Bearer ${token}`;
     }
 
     const res = await fetch(`${base}/${path}`, opts);
-    if (res.ok || res.status === 422) {
+    console.log(res);
+    if (res.status == 200 || res.status === 201) {
         const text = await res.text();
         return text ? JSON.parse(text) : {};
     }

@@ -11,7 +11,7 @@
     export let data;
     let elements = data.body
     import * as api from '$lib/api.js';
-    let role = JSON.parse(atob(data.token.split('.')[1])).role;
+    let role = JSON.parse(atob(data.jwt.split('.')[1])).role;
     // @ts-ignore
     async function deleteLocation(id) {
         let token = data.token

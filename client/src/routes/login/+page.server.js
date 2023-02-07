@@ -28,8 +28,8 @@ export const actions = {
       return fail(401, jwt);
     }
 
-    cookies.set('jwt', jwt.token, { path: '/' });
-    throw redirect(307, '/locations');
-    //return jwt;
+    cookies.set('jwt', jwt, { path: '/' });
+    //throw redirect(307, '/locations');
+    return jwt;
   },
 };
