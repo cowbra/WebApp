@@ -103,10 +103,12 @@
         }
     
         p {
-            margin-top: 20px;
+            margin-top: -400px;
             color: #3f51b5;
             font-size: 1.2em;
+            text-align: center;
         }
+       
     </style>
 </svelte:head>
 
