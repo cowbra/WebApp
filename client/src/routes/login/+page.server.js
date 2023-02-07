@@ -4,6 +4,7 @@ import * as api from '$lib/api.js';
 /** @type {import('./$types').PageServerLoad} */
 // @ts-ignore
 export async function load({ parent, url }) {
+  // @ts-ignore
   const { user } = await parent();
   if (user) return redirect(307, '/');
   const para = url.searchParams.get('error');
@@ -27,6 +28,6 @@ export const actions = {
     }
 
     cookies.set('jwt', token, { path: '/' });
-    return redirect(307, '/locations');
+    throw redirect(307, '/locations');
   },
 };

@@ -1,11 +1,106 @@
 <script>
     import { enhance } from '$app/forms';
-    export let form;
-    export let data
+    /** @type {import('./$types').ActionData} */
+    /**
+     * @type {{ para: string; }}
+     */
+     export let data
 </script>
 
 <svelte:head>
-    <title>Sign in</title>
+    <title>Sign Up</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+    
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #212121;
+        }
+    
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+    
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #333;
+        }
+    
+        .input-field {
+            margin-bottom: 20px;
+            position: relative;
+        }
+    
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-bottom: 2px solid #333;
+            transition: all 0.2s ease-in-out;
+        }
+    
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-bottom: 2px solid #3f51b5;
+        }
+    
+        .action {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+    
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #3f51b5;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+    
+        button[type="submit"]:hover {
+            background-color: #333;
+        }
+    
+        button[type="button"] {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            border: 2px solid #333;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            margin-left: 10px;
+        }
+    
+        button[type="button"]:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    
+        p {
+            margin-top: 20px;
+            color: #3f51b5;
+            font-size: 1.2em;
+        }
+    </style>
 </svelte:head>
 
 <body>
@@ -35,9 +130,8 @@
             </div>
             <div class="action">
                 <button type="submit">Register</button>
-                <button on:click="window.location.href='/login'">Sign In</button>
-            </div>
-
+                <button on:click={() => window.location.href='/login'}>Login</button>
+              </div>
         </form>
     </div>
 </body>
