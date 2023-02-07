@@ -6,6 +6,10 @@
      export let data;
 </script>
 
+<svelte:head>
+    <title>Register</title>
+</svelte:head>
+
 <body class="login">
     {#if data.para}
       <p class="error-message">Incorrect Password</p>
