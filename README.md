@@ -36,6 +36,8 @@
 
     - [x] US6: As an “admin" user, I want to see a button to delete locations in the array of locations so that I can delete existing locations
 
+    - [x] ADD: As a normal user, I want to be redirected if i try to accee to admin page such as `/locations/add` 
+
 
 
 ## Now that you have unlocked your skills 🔓, it's up to you 👊!
