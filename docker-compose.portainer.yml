@@ -17,22 +17,18 @@ services:
       - mongo-webapp
 
   server:
-    image: registry.hugo-sanchez.fr/webbapp:server
+    image: registry.hugo-sanchez.fr/webapp:server
     environment:
       JWT_SECRET: ${JWT}
       MONGO_URI: ${MONGO_URI}
-    expose:
-      - "5000"
     links:
       - mongo-webapp
     depends_on:
       - mongo-webapp
 
   client:
-    image: registry.hugo-sanchez.fr/webbapp:client
+    image: registry.hugo-sanchez.fr/webapp:client
     restart: always
-    expose:
-      - "5173"
     links:
       - server
     depends_on:
@@ -43,10 +39,7 @@ services:
       - server
       - client
     restart: always
-    image: registry.hugo-sanchez.fr/webbapp:nginx
-    build:
-      context: nginx
-      dockerfile: ./Dockerfile
+    image: registry.hugo-sanchez.fr/webapp:nginx
     expose:
       - "80"
     networks:

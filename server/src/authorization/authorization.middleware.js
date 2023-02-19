@@ -1,3 +1,9 @@
+const router = require("express").Router();
+
+const cors = require("cors");
+
+// Utilisez le middleware "cors" pour ajouter les en-têtes CORS
+router.use(cors());
 const canAccess =
   (allowedRoles = []) =>
   (req, res, next) => {

@@ -6,8 +6,16 @@ const locationsService = require("./locations.service");
 const authorizationMiddleware = require("../authorization/authorization.middleware");
 const httpErrorHelper = require("../custom-errors/http-error.helper");
 
+
+const cors = require("cors");
+
+// Utilisez le middleware "cors" pour ajouter les en-têtes CORS
+router.use(cors());
+
+
 async function controllerCreateOneLocation(req, res) {
   const newLocation = await locationsService.createOne(req.body);
+  
   return res.status(201).send(newLocation);
 }
 

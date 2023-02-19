@@ -3,6 +3,11 @@ const passport = require("passport");
 const httpErrorHelper = require("../custom-errors/http-error.helper");
 const router = require("express").Router();
 
+const cors = require("cors");
+
+// Utilisez le middleware "cors" pour ajouter les en-têtes CORS
+router.use(cors());
+
 async function controllerRegisterUser(req, res, next) {
   try {
     const newUser = await usersService.createOne(req.body);

@@ -14,6 +14,8 @@ const app = express();
 
 const port = 5000;
 app.use(cors());
+
+
 app.use(bodyParser.json());
 
 // Protect all /locations route with JWT Authentication
