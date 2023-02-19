@@ -1,0 +1,59 @@
+version: '3.4'
+
+services:
+  mongo-webapp:
+    image: mongo:latest
+    restart: always
+
+  mongo-fill:
+    image: mongo:latest
+    volumes:
+      - /home/bob/podman_docker/cours/webapp/vFinal/mongo_fill:/mongo_fill
+    command:
+      /mongo_fill/import.sh
+    depends_on:
+      - mongo-webapp
+    links:
+      - mongo-webapp
+
+  server:
+    image: registry.hugo-sanchez.fr/webbapp:server
+    environment:
+      JWT_SECRET: ${JWT}
+      MONGO_URI: ${MONGO_URI}
+    expose:
+      - "5000"
+    links:
+      - mongo-webapp
+    depends_on:
+      - mongo-webapp
+
+  client:
+    image: registry.hugo-sanchez.fr/webbapp:client
+    restart: always
+    expose:
+      - "5173"
+    links:
+      - server
+    depends_on:
+      - server
+  
+  nginx:
+    depends_on:
+      - server
+      - client
+    restart: always
+    image: registry.hugo-sanchez.fr/webbapp:nginx
+    build:
+      context: nginx
+      dockerfile: ./Dockerfile
+    expose:
+      - "80"
+    networks:
+      - nginx-proxy-manager_default
+      - default
+      
+networks:
+  nginx-proxy-manager_default:
+    name: nginx-proxy-manager_default
+    external: true
